@@ -10,6 +10,12 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
+  // event handler to inform client that a connection has been established
+  conn.on('connect', () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: HST");
+  });
+
   // event handler to handle incoming data
   conn.on('data', () => {
     console.log("you ded cuz you idled");
